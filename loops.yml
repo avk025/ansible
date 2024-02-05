@@ -3,13 +3,13 @@
 ---
 - hosts: localhost
   become: true
+  gather_facts: no
   tasks:
     - name: Install list of packages
       yum: name='{{item}}' state=present
       with_items:
        - nginx
        - wget
-       - vim
+       - httpd
        - zip
-       - unzip  
-...
+      - java
